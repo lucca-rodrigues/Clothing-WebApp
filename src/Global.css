@@ -43,3 +43,7 @@
 .clothing-item{
   margin: 30px 0;
 }
+
+a:hover{
+  text-decoration: none!important;
+}

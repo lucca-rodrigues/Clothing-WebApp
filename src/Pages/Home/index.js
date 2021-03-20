@@ -3,8 +3,11 @@ import { Container, Row, Col, Card, Modal, Button, Dropdown, Spinner } from 'rea
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import { FaTrash, FaPen, FaEye, FaWrench, FaPlusCircle } from 'react-icons/fa';
+import { BLACK, GREEN, RED, WHITE, LUMINOUSGREEN } from '../../Styles';
 
 import ClothingImage from '../../Assets/Clothing2.jpg';
+import Logo from '../../Assets/logo.png';
 import { Content } from './styles';
 
 import Api from '../../Services/Api';
@@ -48,17 +51,28 @@ const HomePage = () => {
   };
   return (
     <Content>
-      <Container>
-        <Row lg={12}>
-          <h1>Welcome to Clothing | Platform from Matrix Cargo</h1>
+      <Container className="pt-5 pb-5">
+        <Row>
+          <Col lg={12}>
+            <h1>Welcome to Clothing</h1>
+          </Col>
+          <Col lg={12} className="text-white text-center">
+            <h3>The Platform from Matrix Cargo</h3>
+          </Col>
         </Row>
-        <Row lg={12}>
-          <h2>These are the products available</h2>
-
+        <Row>
+          <Col lg={12} className="text-center">
+            <img src={Logo} alt="Logo" />
+          </Col>
         </Row>
-        <Row lg={12}>
+        <Row className="pt-5">
+          <Col lg={12}>
+            <h5 className="text-white text-left">These are the products available:</h5>
+          </Col>
+        </Row>
+        <Row className="add-new">
           <Link to="clothing/new">
-            <Button>Add new</Button>
+            <Button variant="light">Add new <FaPlusCircle /></Button>
           </Link>
         </Row>
         <Row>
@@ -79,26 +93,26 @@ const HomePage = () => {
                   </Card.Text>
                   <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
-                      Options
-                          </Dropdown.Toggle>
+                      Actions <FaWrench color={LUMINOUSGREEN}/>
+                    </Dropdown.Toggle>
                     <Dropdown.Menu>
                       <Dropdown.Item>
                         <Link to={`/clothing/${item.id}`}>
-                          Details
-                              </Link>
+                          <FaEye color={BLACK} /> Details
+                        </Link>
                       </Dropdown.Item>
                       <Dropdown.Item>
                         <Link to={`/edit-clothing/${item.id}`}>
-                          Edit
-                              </Link>
+                          <FaPen color={GREEN} />Edit
+                        </Link>
                       </Dropdown.Item>
                       <Dropdown.Item>
                         <div onClick={() => {
                           setClothingId(item.id);
                           setOpen(!open);
                         }}>
-                          Delete
-                              </div>
+                          <FaTrash color={RED} /> Delete
+                        </div>
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
@@ -110,14 +124,14 @@ const HomePage = () => {
       </Container>
       <Modal show={open} onHide={!open} animation={false}>
         <Modal.Header>
-          <Modal.Title>Delete products</Modal.Title>
+          <Modal.Title>Delete Clothing</Modal.Title>
         </Modal.Header>
         <Modal.Body>Are you sure you want to delete this item?</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setOpen(false)}>
-            Close
+          <Button variant="danger" onClick={() => setOpen(false)}>
+            Cancell
             </Button>
-          <Button variant="primary" onClick={() => {
+          <Button variant="success" onClick={() => {
             handleRemoveItem(clothingId);
             setClothingId('');
             setOpen(false);
