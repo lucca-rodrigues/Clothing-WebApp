@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Modal, Button, Dropdown, Spinner } from 'react-bootstrap';
+import { Container, Row, Col, Card, Modal, Button, Dropdown } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
