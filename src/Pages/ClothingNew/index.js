@@ -62,7 +62,7 @@ const ClothingNew = () => {
                         <Input name="inventory" type="number" label="Quantity Cloting" placeholder="1" className="form-control" />
                       </Col>
                       <Col lg={12} className="mt-3">
-                        <Input name="value" type="number" label="Price Cloting" placeholder="R$ 99.90" className="form-control" />
+                        <Input name="value" label="Price Cloting" placeholder="R$ 99.90" className="form-control" />
                       </Col>
                     </Row>
                     <Row>
