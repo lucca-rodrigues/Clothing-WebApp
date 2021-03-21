@@ -6,7 +6,8 @@ export const Content = styled.div`
   flex: 1;
   display: flex;
   max-width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%!important;
 
   h1{
     text-transform: uppercase;

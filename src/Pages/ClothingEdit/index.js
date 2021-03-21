@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
@@ -6,30 +6,55 @@ import { Form, Input } from "@rocketseat/unform";
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Logo from '../../Assets/logo.png';
+
 import { Content } from './styles';
+
+import { useParams } from 'react-router-dom';
 
 import Api from '../../Services/Api';
 
 
 const ClothingEdit = () => {
+  const { id } = useParams();
   const history = useHistory();
 
-  const handleSubmit = useCallback(async (data) => {
-    Api.post('/clothings', {
+  const [details, setDetails] = useState({})
+
+  const title = details.title;
+  const description = details.description;
+  const inventory = details.inventory;
+  const value = details.value;
+
+  useEffect((data) => {
+    const handleDetails = async () => {
+      await Api.get(`/clothings/${id}`, data)
+        .then((response) => {
+          setDetails(response.data);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    };
+    handleDetails();
+
+  }, [id]);
+
+  const handleUpdateDetails = useCallback(async (data) => {
+    Api.put(`/clothings/${id}`, {
       title: data.title,
       description: data.description,
       inventory: Number(data.inventory),
       value: Number(data.value)
     })
       .then(() => {
-        toast.success("Cadastro realizado com sucesso!");
+        toast.success("Cloting update sucessfuly!")
         history.push('/');
       })
-      .catch((error) => {
-        toast.error("Erro ao realizar Cadastro, verifique se as informações estão corretas!")
+      .catch(() => {
+        toast.error("Error Cloting update sucessfuly!");
       })
-
-  }, [history]);
+  }, [id, history]);
 
     return (
       <Content>
@@ -51,7 +76,8 @@ const ClothingEdit = () => {
               </Row>
               <Row clasName="pt-5 pb-5">
                 <Form
-                  onSubmit={handleSubmit}
+                  initialData={{ title: title, description: description, inventory: inventory, value: value }}
+                  onSubmit={handleUpdateDetails}
                   >
                     <Row clasName="pt-5 form-clothing">
                       <Col lg={12}>

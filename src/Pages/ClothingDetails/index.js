@@ -1,60 +1,68 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import React, {useState, useEffect, useCallback} from 'react';
+import { Link, useHistory } from 'react-router-dom';
+
+import { toast } from 'react-toastify';
+import { Form, Input } from "@rocketseat/unform";
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import Logo from '../../Assets/logo.png';
 
 import { Content } from './styles';
 
-import ClothingImage from '../../Assets/Clothing.jpeg';
+import { useParams } from 'react-router-dom';
 
 import Api from '../../Services/Api';
 
+
 const ClothingDetails = () => {
-  const {id} = useParams();
+  const { id } = useParams();
+
   const [details, setDetails] = useState({})
 
   useEffect((data) => {
-    async function handleDetails () {
-      Api.get(`/clothings/${id}`, data)
-      .then((response) => {
-        setDetails(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+    const handleDetails = async () => {
+      await Api.get(`/clothings/${id}`, data)
+        .then((response) => {
+          setDetails(response.data);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     };
     handleDetails();
 
-  },[id]);
+  }, [id]);
 
     return (
       <Content>
         <Container>
-          <Row className="title-page">
-            <Col>
-              <h1>Product Details</h1>
-            </Col>
-          </Row>
           <Row>
-            <Col sm={12} md={4} lg={6}>
-              <img src={ClothingImage} alt="Placeholder" className="clothing-image"/>
+            <Col lg={4} className="pt-5">
+              <img src={Logo} width="100%"/>
             </Col>
-            <Col sm={12} md={8} lg={6} className="description">
-              <p>Clothing Id: {id}</p>
-              <h2>{details.title ||  '-'}</h2>
-              <p>{details.description || '-'}</p>
-              <p>Inventory: {details.inventory|| '-'}</p>
-              <p>Price: {details.value || '-'}</p>
-                <Link to="/">
-                  <Button>Go to home</Button>
-                </Link>
+            <Col lg={8}>
+              <Row className="title-page pt-5 pb-5">
+                <Col lg={12} className="text-right">
+                  <h1>Clothing Details</h1>
+                  <Col sm={12} md={12} lg={12} className="description pt-5">
+                  <p>Clothing Id: {id}</p>
+                  <h2>{details.title ||  '-'}</h2>
+                  <p>{details.description || '-'}</p>
+                  <p>Inventory: {details.inventory|| '-'}</p>
+                  <p>Price: {details.value || '-'}</p>
+                    <Link to="/">
+                      <Button>Go to home</Button>
+                    </Link>
+                </Col>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Container>
       </Content>
-    );
+    )
 }
+
 
 export default ClothingDetails;
