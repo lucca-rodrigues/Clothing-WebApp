@@ -6,11 +6,9 @@ import { Form, Input } from "@rocketseat/unform";
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Logo from '../../Assets/logo.png';
-import Header from '../../Components/Header';
 import { Content } from './styles';
 
 import Api from '../../Services/Api';
-
 
 const ClothingNew = () => {
   const history = useHistory();
@@ -74,7 +72,7 @@ const ClothingNew = () => {
               </Row>
             </Col>
             <Col lg={4} className="pt-5 d-flex align-items-center">
-              <img src={Logo} />
+              <img src={Logo} alt="Logo"/>
             </Col>
           </Row>
         </Container>

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {BLACK, GREEN, GREY, WHITE} from '../../Styles';
+import {BLACK, GREEN, WHITE} from '../../Styles';
 
 export const Content = styled.div`
   background-color: ${BLACK};

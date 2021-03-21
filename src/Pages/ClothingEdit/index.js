@@ -61,7 +61,7 @@ const ClothingEdit = () => {
         <Container>
           <Row>
             <Col lg={4} className="pt-5 d-flex align-items-center">
-              <img src={Logo} />
+              <img src={Logo} alt="Logo"/>
             </Col>
             <Col lg={8}>
               <Row className="title-page pt-5 pb-5">

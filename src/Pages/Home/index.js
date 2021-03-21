@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Modal, Button, Dropdown } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
 import { FaTrash, FaPen, FaEye, FaWrench, FaPlusCircle } from 'react-icons/fa';
-import { BLACK, GREEN, RED, WHITE, LUMINOUSGREEN } from '../../Styles';
+import { BLACK, GREEN, RED, LUMINOUSGREEN } from '../../Styles';
 
 import ClothingImage from '../../Assets/Clothing2.jpg';
 import Logo from '../../Assets/logo.png';
@@ -12,17 +11,13 @@ import { Content } from './styles';
 
 import Api from '../../Services/Api';
 
-
 const HomePage = () => {
-  const history = useHistory();
   const [open, setOpen] = useState(false);
   const [clothings, setClothings] = useState();
   const [clothingId, setClothingId] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [reloadingData, setReloadingData] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     const handleClothings = () => {
       Api.get('/clothings')
         .then((response) => {
@@ -33,14 +28,12 @@ const HomePage = () => {
         })
     }
     handleClothings();
-    setLoading(false);
   }, [reloadingData]);
 
   const handleRemoveItem = (id) => {
     Api.delete(`/clothings/${id}`)
       .then(() => {
         toast.success("Clothing removed Successfuly!");
-        setLoading(true);
       })
       .catch((error) => {
         toast.error("Error to removeClothing!");

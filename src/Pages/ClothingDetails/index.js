@@ -1,8 +1,5 @@
-import React, {useState, useEffect, useCallback} from 'react';
-import { Link, useHistory } from 'react-router-dom';
-
-import { toast } from 'react-toastify';
-import { Form, Input } from "@rocketseat/unform";
+import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Logo from '../../Assets/logo.png';
@@ -39,7 +36,7 @@ const ClothingDetails = () => {
         <Container>
           <Row>
             <Col lg={4} className="pt-5">
-              <img src={Logo} width="100%"/>
+              <img src={Logo} alt="Logo" width="100%"/>
             </Col>
             <Col lg={8}>
               <Row className="title-page pt-5 pb-5">
