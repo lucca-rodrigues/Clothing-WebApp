@@ -1,3 +1,6 @@
+
+<img src="./src/Assets/Clothing-view.png" alt="Preview platform" width="80%" height="auto" margin="0 auto">
+
 # Oque é Clothing?
 
 Clothing é uma plataforma para cadastro e controle de vestuários em estoque, e torna possível visualizar o seu valor estimado e quantidade disponível, além de nome e descrição do estado atual.
