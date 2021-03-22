@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Oque é Clothing?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Clothing é uma plataforma para cadastro e controle de vestuários em estoque, e torna possível visualizar o seu valor estimado e quantidade disponível, além de nome e descrição do estado atual.
 
-## Available Scripts
+# Instalações
 
-In the project directory, you can run:
+* Primeiramente, acesse o seu terminal e pasta desejada.
+* Em seguida faça o clone do projeto com ```js git clone https://github.com/lucca-rodrigues/Clothing-WebApp.git```
+* Feito isso acesse a pasta do repositório com ```cmd cd Clothing-WebApp```
+* Faça a instalação das dependências com ```cmd yarn ``` ou ```cmd npm install``` (Recomendamos a utilização do Yarn).
 
-### `yarn start`
+# API Service
+* Agora com o projeto e depenências instalados, faça o clone da API Service ```cmd git clone https://github.com/lucca-rodrigues/Clothing-Service-API.git```
+* Instale todas as dependências com ```cmd yarn ``` ou ```cmd npm install```.
+* O projeto já possui um banco de dados Sqlite integrado para facilitar a execução, mas se desejar utilizar outro banco de dados faça a instalação do driver desejado e em seguida configure os dados de conexão no ```cmd .env```.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Execução com banco de dados atual:
+* Se optar por utilizar o mesmo banco, basta rodar ```cmd yarn dev``` (Já preparamos alguns scrips para facilitar o processo).
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Execução com novo banco de dados:
+* Instale o driver do banco de dados
+* Faça a configuração de conexão no ```cmd .env```.
+* Aqui segue uma lista com os scripts disponíveis para facilitar o processo:
+```javascript
+ "scripts": {
+    "start": "node server.js",
+    "dev": "adonis serve --dev", // START O PROJETO
+    "migrate": "adonis migration:run", // RODAR MIGRATIONS
+    "refresh": "adonis migration:refresh", // DELETAR E RE-CRIAR MIGRATIONS
+    "reset": "adonis migration:reset", // REMOVER MIGRATIONS
+    "model": "adonis make:model", // CRIAR NOVOS MODELS
+    "controller": "adonis make:controller",// CRIAR NOVOS CONTROLLERS
+    "migration": "adonis make:migration", // CRIAR NOVAS MIGRATIONS
+    "test": "node ace test"
+  },
+```
+* Para utilizar os scrips é simples ```cmd yarn + comando Ex: yarn migrate ou npm run migrate```.
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Startando o Front-end
+* Se sua api já deve estar rodando, agora é só startar o Front-end com ```cmd yarn start``` ou ```cmd npm run start```

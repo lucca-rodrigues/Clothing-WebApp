@@ -51,16 +51,16 @@ const ClothingNew = () => {
                   >
                     <Row clasName="pt-5 form-clothing">
                       <Col lg={12}>
-                        <Input name="title" placeholder="Title..." label="Title Cloting" className="form-control"/>
+                        <Input name="title" required placeholder="Title..." label="Title Cloting" className="form-control"/>
                       </Col>
                       <Col lg={12} className="mt-3">
-                        <Input name="description" placeholder="Description..." label="Description Cloting" className="form-control" />
+                        <Input name="description" required placeholder="Description..." label="Description Cloting" className="form-control" />
                       </Col>
                       <Col lg={12} className="mt-3">
-                        <Input name="inventory" type="number" label="Quantity Cloting" placeholder="1" className="form-control" />
+                        <Input name="inventory" required type="number" label="Quantity Cloting" placeholder="1" className="form-control" />
                       </Col>
                       <Col lg={12} className="mt-3">
-                        <Input name="value" label="Price Cloting" placeholder="R$ 99.90" className="form-control" />
+                        <Input name="value" required label="Price Cloting" placeholder="R$ 99.90" className="form-control" />
                       </Col>
                     </Row>
                     <Row>
