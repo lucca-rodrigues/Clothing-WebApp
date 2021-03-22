@@ -79,10 +79,7 @@ const HomePage = () => {
                     {item.description}
                   </Card.Text>
                   <Card.Text>
-                    Inventory: {item.nventory}
-                  </Card.Text>
-                  <Card.Text>
-                    Value: R$ {item.value}
+                  Qtd: {item.inventory} - R$ {item.value}
                   </Card.Text>
                   <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">

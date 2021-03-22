@@ -40,12 +40,12 @@ const ClothingDetails = () => {
             </Col>
             <Col lg={8}>
               <Row className="title-page pt-5 pb-5">
-                <Col lg={12} className="text-right">
+                <Col lg={12} className="text-left">
                   <h1>Clothing Details</h1>
                   <Col sm={12} md={12} lg={12} className="description pt-5">
                   <p>Clothing Id: {id}</p>
-                  <h2>{details.title ||  '-'}</h2>
-                  <p>{details.description || '-'}</p>
+                  <h2>Title: {details.title ||  '-'}</h2>
+                  <p>Description: {details.description || '-'}</p>
                   <p>Inventory: {details.inventory|| '-'}</p>
                   <p>Price: {details.value || '-'}</p>
                     <Link to="/">
